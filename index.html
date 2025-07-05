@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Math Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="game-container">
+    <h1>🧠 Math Quiz Game</h1>
+    <div id="question">Loading...</div>
+    <div id="timer">Time Left: 10s</div>
+    <div class="answers">
+      <button class="answer-btn" onclick="checkAnswer(0)">0</button>
+      <button class="answer-btn" onclick="checkAnswer(1)">1</button>
+      <button class="answer-btn" onclick="checkAnswer(2)">2</button>
+    </div>
+    <div id="score">Score: 0</div>
+    <div id="high-score">High Score: 0</div>
+    <div id="lives">Lives: 3</div>
+    <div id="game-over" class="hidden">Game Over! Refresh to Play Again.</div>
+
+    <h2>🏆 Leaderboard</h2>
+    <ol id="leaderboard-list"></ol>
+  </div>
+
+  <audio id="correctSound" src="sounds/correct.mp3" preload="auto"></audio>
+  <audio id="wrongSound" src="sounds/wrong.mp3" preload="auto"></audio>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      databaseURL: "YOUR_DATABASE_URL",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
